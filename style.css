@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200;1,300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+body{
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/278/150/small/dark-background-abstract-with-light-effect-vector.jpg');
+    backdrop-filter: blur(10px);
+    background-size:contain;
+    background-position: center;
+}
+
+section{
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section:nth-child(1){
+    color: white;
+    min-height: 60vh;
+}
+
+section:nth-child(2){
+    color: #1D212B;
+    background: rgb(255, 255, 255);
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+section:nth-child(2) .container .cards .text-card img{
+    width: 280px;
+    background: transparent;
+    margin-top: -10%;
+    margin-bottom: -10%;
+}
+
+section:nth-child(2) .container,p{
+    margin-bottom: -1%;
+    margin-top: -1%;
+    text-align: justify;
+    padding-top: 20px;
+}
+
+section:nth-child(3){
+    color: white;
+}
+
+section:nth-child(4){
+    color: #11141a;
+    background: white;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+section:nth-child(5){
+    color: white;
+}
+
+section .container{
+    margin: 100px;
+}
+
+section h1{
+    font-size: 40px;
+}
+
+section h2{
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section .cards{
+    display: flex;
+}
+
+section .cards .text-card{
+    background: rgba(9, 186, 195, 0.575);
+    margin: 10px;
+    padding: 40px;
+}
+
+section .cards .text-card h3{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 900px){
+    section h1{
+        font-size: 50px;
+    }
+
+    section .cards{
+        flex-direction: column;
+    }
+
+}
+.text-content {
+    color: white;
+    opacity: 1; /* Make text content visible */
+    animation: slideIn 1s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@keyframes slideIn {
+    from{
+        margin-bottom: -10%;
+        opacity: 0;
+    }
+    to{
+        margin-left: 0;
+        opacity:1;
+    }
+}
+
+.subtitle {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.media-icons a{
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.media-icons img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
