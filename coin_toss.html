@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Toss Game</title>
+    <style>
+        body {
+            background-image: url('https://st2.depositphotos.com/6290260/48055/i/450/depositphotos_480559070-stock-photo-falling-coins-black-background-euro.jpg');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: whitesmoke;
+            margin: 0;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 100vh;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(70, 71, 67, 0.304);
+            margin: 70px 0 0 100px;
+        }
+
+        h2 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1em;
+            align-items: center;
+            margin-top: 3em;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px rgb(143, 152, 58), 0 0 20px rgb(16, 22, 1), 0 0 30px rgb(247, 248, 242), 0 0 40px #0ff;;;
+            text-align: center;
+            text-decoration: none;
+            background-color: #022303;
+            color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 20px;
+        }
+
+        .button-link:hover {
+            background-color: #043907;
+        }
+
+        .toss-button{
+            background-color: rgba(144, 78, 3, 0.992); 
+            border-color: rgb(197, 176, 191); 
+            text-shadow: 0 0 10px rgb(235, 233, 232), 0 0 20px rgb(215, 190, 190), 0 0 30px rgb(74, 79, 3), 0 0 40px rgb(16, 9, 0);;;;
+        }
+
+        .toss-button:hover{
+            background-color: darkorange;
+        }
+
+        .exit-button{
+            background-color: red;
+            color: white;
+            border-color: white;
+        }
+
+        .exit-button:hover{
+            background-color: darkred;
+
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+            color: floralwhite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container" style="text-align: left;">
+        <h2>Coin Toss Game Instructions</h2>
+        <div style="margin-left: 15px;">
+            <p>How to Play:</p>
+            <div style="margin-left: 30px;">
+                <p>1.Click on "Heads" or "Tails" to make your prediction. </p>
+                <p>2.Click the "Toss!" button to flip the coin. </p>
+                <p>3.The coin will land on either "Heads" or "Tails." </p>
+                <p>4.If your choice matches the result, you win! If not, no worries. You can play again. </p>
+                <p>5.Make a new prediction and click "Toss!" for another round. </p>
+                <p>6.Click "Exit" to leave the game. </p>
+            </div>
+        </div>
+        <div>
+            <p>Tips: </p>
+            <p>It's a 50/50 chance, so trust your gut!
+                Keep it simple and have fun. </p>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: transparent">
+        <div>
+            <h2>Call the Coin Toss: </h2>
+            <div class="button-container">
+                <a href='#' class="button-link" id="heads">Heads</a>
+                <a href='#' class="button-link" id="tails">Tails</a>
+            </div>
+        </div>
+
+        <form action="/coin_toss" method="POST">
+            <input type="hidden" name="guess" id="userGuess" value="">
+            <div class="button-container">
+                <button type="submit" class="button-link toss-button">Toss!</button>
+            </div>
+        </form>
+
+        <div>
+            <h2>Results: </h2>
+            {% if error %}
+                <p style="color: rgba(239, 233, 233, 0.866);font-size: larger;text-shadow: 0 0 10px rgb(143, 152, 58), 0 0 20px rgb(16, 22, 1), 0 0 30px rgb(173, 114, 18), 0 0 40px rgb(194, 70, 25);;;">{{ error }}</p>
+            {% else %} 
+            <p style="font-size: xx-large; text-align: center;text-shadow: 0 0 10px rgb(107, 114, 43), 0 0 20px rgb(16, 22, 1), 0 0 30px rgb(145, 161, 65), 0 0 40px #0ff;;;;"> {{ result }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <form action="/game" method="POST">
+        <input type="hidden" name="choice" id="userChoice" value="">
+        <div class="button-container" style="margin: 40px; flex-direction: column; ">
+            <a href="/exit" class="button-link exit-button">Exit</a>
+        </div>
+    </form>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('heads').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('userGuess').value = 'heads';
+        });
+
+        document.getElementById('tails').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('userGuess').value = 'tails';
+        });
+    });
+</script>
+</body>
+</html>

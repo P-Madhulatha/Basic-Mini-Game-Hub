@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini games</title>
+    <style>
+        body { 
+            background-image: url('https://e0.pxfuel.com/wallpapers/8/828/desktop-wallpaper-dark-background-game-over-minimalistic-retro-games-simple-game-over-android.jpg');
+            background-size:cover;
+            background-attachment: scroll;
+            backdrop-filter: blur(10px);
+            background-blend-mode: soft-light;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: whitesmoke;
+            margin: 0;
+            height: 100vh;
+        }
+        h1 { 
+            font-size: 3em;
+            text-shadow: 0 0 10px rgb(143, 152, 58), 0 0 20px rgb(16, 22, 1), 0 0 30px rgb(247, 248, 242), 0 0 40px #0ff;;
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-bottom: 50px;
+        }
+
+        p {
+            color: rgb(223, 211, 164);
+            font-size: large;
+            text-align: center;
+            padding: 5px 5px;
+            margin-bottom: 5px;
+            margin-top: 3px;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 5s steps(50, end), blink-caret 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0;}
+            to { width: 100%;}
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent;}
+            50%{ border-color: rgb(223, 211, 164);;}
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+
+        }
+
+        .game-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .game-icon.RPS {
+            background-image: url('/static/images/rock-paper-scissors.jpg');
+        }
+
+        .game-icon.COINTOSS {
+            background-image: url('/static/images/coin-toss.png');
+        }
+
+        .game-icon.MATH {
+            background-image: url('/static/images/math.jpg');
+        }
+
+        .profile-link {
+            position: fixed;
+            top: 50px;
+            right: 30px;
+            color: whitesmoke;
+            text-decoration:none;
+            font-size: 16px;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>MINI GAMES</h1>
+    <p>Welcome to the mini game! Click on the Icon to play</p>
+    <div class="icon-container">
+        <a href="/game" class="game-icon RPS" id="RPSLink" title="Rock, Paper, Scissors"></a>
+        <a href="/coin_toss" class="game-icon COINTOSS" id="COINTOSSLink" title="Coin Toss"></a>
+        <a href="/math_game" class="game-icon MATH" id="MATHLink" title="Math Game"></a>
+    </div>
+    <a href="portfolio" class="profile-link" id="Profile">About Me</a>
+    <script>
+        document.getElementById('RPSLink').addEventListener('click', function(event){
+            event.preventDefault();
+            window.location.href = "/game";
+        });
+
+        document.getElementById('COINTOSSLink').addEventListener('click', function(event){
+            event.preventDefault();
+            window.location.href = "/coin_toss";
+        });
+
+        document.getElementById('MATHLink').addEventListener('click', function(event){
+            event.preventDefault();
+            window.location.href = "/math_game";
+        });
+
+        document.getElementById('Profile').addEventListener('click', function(event){
+            event.preventDefault();
+            window.location.href = "/portfolio";
+        });
+
+    </script>
+</body>
+</html>
